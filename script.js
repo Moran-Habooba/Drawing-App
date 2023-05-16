@@ -8,10 +8,12 @@ canvas.width = window.innerWidth - canvasOffsetX;
 canvas.height = window.innerHeight - canvasOffsetY;
 
 function startPosition(e) {
+  const touch = e.touches[0];
   painting = true;
-
-  startX = e.offsetX;
-  startY = e.offsetY;
+  startX = touch.pageX - canvasOffsetX;
+  startY = touch.pageY - canvasOffsetY;
+  // startX = e.offsetX;
+  // startY = e.offsetY;
   ctx.beginPath();
   ctx.moveTo(startX, startY);
 }
@@ -23,10 +25,14 @@ function endPosition() {
 function draw(e) {
   if (!painting) return;
   // console.log(e.offsetX, e.offsetY);
-
+  e.preventDefault();
+  const touch = e.touches[0];
+  const x = touch.pageX - canvasOffsetX;
+  const y = touch.pageY - canvasOffsetY;
   ctx.lineWidth = lineWidth;
   ctx.lineCap = "round";
-  ctx.lineTo(e.offsetX, e.offsetY);
+  // ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.lineTo(x, y);
   ctx.stroke();
 }
 
@@ -50,3 +56,9 @@ toolbar.addEventListener("change", (e) => {
 canvas.addEventListener("mousedown", startPosition);
 canvas.addEventListener("mouseup", endPosition);
 canvas.addEventListener("mousemove", draw);
+
+// מגע
+
+canvas.addEventListener("touchstart", startPosition);
+canvas.addEventListener("touchend", endPosition);
+canvas.addEventListener("touchmove", draw);
