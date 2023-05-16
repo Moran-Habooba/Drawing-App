@@ -12,11 +12,15 @@
     <div class="container">
       <div id="toolbar">
         <h1>toolbar</h1>
-        <label for="color">color</label>
+        <label for="color">Color</label>
         <input id="color" name="color" type="color" />
         <label for="lineWidth">Line Width</label>
-        <input id="lineWidth" name="lineWidth" type="number" value="8" />
+        <input id="lineWidth" name="lineWidth" type="range" min="2" />
         <button id="clear">Clear</button>
+        <label id="Fill" for="fill">Fill</label>
+        <button id="Fill">
+          <img src="./fillicon.png" alt="" />
+        </button>
       </div>
     </div>
     <canvas id="canvas"></canvas>

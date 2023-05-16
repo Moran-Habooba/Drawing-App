@@ -23,6 +23,7 @@ body {
   width: 100px;
   height: 1200px;
   background-color: #e99919;
+  font-weight: 500;
 }
 
 #toolbar * {
@@ -30,7 +31,7 @@ body {
 }
 
 #toolbar label {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 #toolbar input {
@@ -43,4 +44,9 @@ body {
   border-radius: 4px;
   color: white;
   padding: 2px;
+  cursor: pointer;
+}
+img {
+  width: 35px;
+  margin-top: 10px;
 }

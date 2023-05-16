@@ -31,7 +31,6 @@ function endPosition() {
 function draw(e) {
   if (!painting) return;
   // console.log(e.offsetX, e.offsetY);
-
   ctx.lineWidth = lineWidth;
   ctx.lineCap = "round";
   ctx.lineTo(e.offsetX, e.offsetY);
@@ -67,6 +66,7 @@ function drawTouch(e) {
 }
 
 console.log(toolbar.id);
+
 toolbar.addEventListener("click", (e) => {
   if (e.target.id === "clear") {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -83,6 +83,12 @@ toolbar.addEventListener("change", (e) => {
   }
 });
 
+toolbar.addEventListener("click", (e) => {
+  if (e.target.id === "Fill") {
+    ctx.fillStyle = color.value;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+});
 // canvas.addEventListener("mousedown", startPosition);
 // canvas.addEventListener("mouseup", endPosition);
 // canvas.addEventListener("mousemove", draw);
