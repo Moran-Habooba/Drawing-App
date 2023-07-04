@@ -89,6 +89,7 @@ toolbar.addEventListener("click", (e) => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 });
+
 // canvas.addEventListener("mousedown", startPosition);
 // canvas.addEventListener("mouseup", endPosition);
 // canvas.addEventListener("mousemove", draw);
